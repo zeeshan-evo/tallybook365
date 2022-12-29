@@ -24,7 +24,7 @@ app.use("/api/v1", quoteRouter)
 
 app.use(errorHandler)
 
-const port = 5050
+const port = $PORT || 5050
 
 const startServer = () => {
   app.listen(port, () => {
