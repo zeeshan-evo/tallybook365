@@ -1,4 +1,4 @@
-# Basic production ready Authentication api with node.js, express and MongoDB
+# Invoicing and quotation management solution for digital agencies.
 
 ### steps to run the api:
 
@@ -10,4 +10,4 @@
    - JWT_SECRET
    - EXPIRY
 
-Done! now try registering users and have fun!
+Done! now try registering users and do your agency thing!
