@@ -24,12 +24,10 @@ app.use("/api/v1", quoteRouter)
 
 app.use(errorHandler)
 
-const port = $PORT || 5050
-
 const startServer = () => {
-  app.listen(port, () => {
+  app.listen(8080, () => {
     connectDB(process.env.MONGO_URL)
-    console.log(`server started on port ${port}`);
+    console.log("server started on port 8080");
   })
 }
 
