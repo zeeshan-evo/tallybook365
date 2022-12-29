@@ -36,16 +36,16 @@ const quoteSchema = new mongoose.Schema({
     type: String,
   },
   bank_account: {
-    type: Number,
+    type: String,
   },
   bank_name_address: {
     type: String,
   },
   swift: {
-    type: Number
+    type: String
   },
   routing_no: {
-    Number
+    String
   }
 })
 
