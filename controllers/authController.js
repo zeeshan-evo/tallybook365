@@ -1,6 +1,6 @@
 const BadRequestError = require('../errors/bad-request');
 const User = require('../models/authModel');
-const attachCookies = require('../utils/cookies');
+// const attachCookies = require('../utils/cookies');
 const { createJWT } = require('../utils/jwt');
 const { hashPassword, comparePassword } = require('../utils/password')
 
@@ -22,8 +22,8 @@ async function register(req, res) {
   
   const tokenUser = { name: user.name, role: user.role, email: user.email, user_id: user_id }; 
   const token = await createJWT(tokenUser);
-  await attachCookies(res, token)
-  res.status(201).json({ msg: 'user successfully registered', user: tokenUser }); 
+  // await attachCookies(res, token)
+  res.status(201).json({ token, msg: 'user successfully registered', user: tokenUser }); 
 }
 
 async function login(req, res) {
@@ -34,7 +34,7 @@ async function login(req, res) {
   }
 
   const storedUser = await User.findOne({ email });
-  
+  console.log(storedUser);
   if (!storedUser) {
     throw new BadRequestError("user with this email doesn't exist")
   }
@@ -45,15 +45,15 @@ async function login(req, res) {
 
   if (isCorrect) {
     const token = await createJWT(tokenUser);
-    await attachCookies(res,token)
-    return res.status(201).json({ msg: 'user successfully logged in', user: tokenUser});
+    // await attachCookies(res,token)
+    return res.status(201).json({ token, msg: 'user successfully logged in', user: tokenUser});
   } else {
     return res.status(401).json({ msg: 'unauthorized' });
   }
 }
 
 async function logout(req, res) {
-  res.cookie('authToken', 'loggedout', {expires: new Date(Date.now())})
+  // res.cookie('authToken', 'loggedout', {expires: new Date(Date.now())})
   res.status(200).json({ msg: 'user successfully logged out' });
 }
 

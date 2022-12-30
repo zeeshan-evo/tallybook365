@@ -4,11 +4,14 @@ const { verifyToken } = require("./jwt")
 
 
 async function authenticateUser(req, res, next) {
-  const token = req.cookies.authToken
+  const authHeader = req.headers.authorization
 
-  if (!token) {
-    throw new UnauthenticatedError('Authentication is invalid')
+  if (!authHeader || !authHeader.startsWith("Bearer ")) {
+    throw new UnauthenticatedError("No token provided")
   }
+
+  const token = authHeader.split(" ")[1]
+
   const verifiedToken = await verifyToken(token)
   const { name, role, email, user_id } = verifiedToken
   req.user = { name, role, email, user_id}
