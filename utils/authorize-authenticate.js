@@ -12,10 +12,15 @@ async function authenticateUser(req, res, next) {
 
   const token = authHeader.split(" ")[1]
 
-  const verifiedToken = await verifyToken(token)
-  const { name, role, email, user_id } = verifiedToken
-  req.user = { name, role, email, user_id}
-  next()
+  try {
+    const verifiedToken = await verifyToken(token)
+    const { name, role, email, user_id } = verifiedToken
+    req.user = { name, role, email, user_id }
+    next()
+  } catch (error) {
+    throw new UnauthenticatedError("token is invalid")
+  }
+  
 }
 
 module.exports = authenticateUser
