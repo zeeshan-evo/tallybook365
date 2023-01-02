@@ -7,6 +7,6 @@ quoteRouter.post("/quotes", authenticateUser, createQuote)
 quoteRouter.get("/quotes", authenticateUser, getAllQuotes)
 quoteRouter.get("/quotes/:id", authenticateUser, getQuote)
 quoteRouter.delete("/quotes/:id", authenticateUser, deleteQuote)
-quoteRouter.patch("/quotes/:id", updateQuote)
+quoteRouter.patch("/quotes/:id",authenticateUser, updateQuote)
 
 module.exports = quoteRouter

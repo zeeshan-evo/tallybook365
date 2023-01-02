@@ -12,6 +12,7 @@ const errorHandler = require('./utils/error-handler')
 const authenticateUser = require('./utils/authorize-authenticate')
 const morgan = require('morgan')
 const cors = require("cors")
+const invoiceRouter = require('./routes/invoiceRouter')
 
 
 app.use(cors())
@@ -25,6 +26,7 @@ app.get('/authtest', authenticateUser, (req, res) => {
 app.use('/api/v1/auth', authRouter)
 app.use("/api/v1", clientRouter)
 app.use("/api/v1", quoteRouter)
+app.use("/api/v1", invoiceRouter)
 
 app.use(errorHandler)
 

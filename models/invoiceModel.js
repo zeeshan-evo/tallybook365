@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 
-const quoteSchema = new mongoose.Schema({
+const invoiceSchema = new mongoose.Schema({
   user_id: {
     type: String,
     required: [true, "user id is missing"],
@@ -43,11 +43,11 @@ const quoteSchema = new mongoose.Schema({
     type: String,
   },
   swift: {
-    type: String
+    type: String,
   },
   routing_no: {
-    String
-  }
+    String,
+  },
 })
 
-module.exports = mongoose.model("Quote", quoteSchema)
+module.exports = mongoose.model("Invoice", invoiceSchema)

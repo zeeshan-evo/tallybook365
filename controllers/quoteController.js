@@ -37,7 +37,7 @@ async function getAllQuotes(req, res) {
     if (quotes) {
       return res.status(200).json(quotes)
     }
-    throw new NotFoundError("quotes not found")
+    throw new NotFoundError(`quotes not found ( role is ${role})`)
   }
 
   if (role === "user") {
@@ -45,7 +45,7 @@ async function getAllQuotes(req, res) {
     if (quotes) {
       return res.status(200).json(quotes)
     }
-    throw new NotFoundError("quotes not found")
+    throw new NotFoundError(`quotes not found ( role is ${role})`)
   }
 }
 
