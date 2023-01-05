@@ -22,11 +22,11 @@ const invoiceSchema = new mongoose.Schema({
   },
   job_no: {
     type: Number,
-    required: true,
+    required: [true, "job_no is missing"],
   },
   date: {
     type: Date,
-    required: true,
+    required: [true, "date is missing"],
     default: Date.now(),
   },
   items: {

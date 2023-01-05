@@ -19,11 +19,11 @@ const clientSchema = new mongoose.Schema({
   },
   client_representitive1: {
     type: String,
-    required: [true, "representitive is missing"],
+    required: [true, "representitive is missing, atleast need to add one representative"],
   },
   client_representitive1_no: {
     type: String,
-    required: [true, "representitive is missing"],
+    required: [true, "representitive is missing, atleast need to add one representative contact no"],
   },
   client_representitive2: {
     type: String,
