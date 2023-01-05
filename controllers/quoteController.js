@@ -66,7 +66,7 @@ async function updateQuote(req, res) {
   const quote = await Quote.findOneAndUpdate({ _id: id }, req.body, { new: true })
   
   if (quote) {
-    return res.status(200).json({mas: "quote successfully updated", data: quote})
+    return res.status(200).json({msg: "quote successfully updated", data: quote})
   }
   throw new BadRequestError("couldn't update quote, sorry :(")
 }

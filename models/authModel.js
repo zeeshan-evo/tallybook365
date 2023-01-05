@@ -17,7 +17,7 @@ const UserSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: [true, "please prvoide a password"],
+    required: [true, "please provide a password"],
     minlength: 6,
   },
   role: {
@@ -27,7 +27,7 @@ const UserSchema = new mongoose.Schema({
   },
   user_id: {
     type: String,
-    required: [true, "please prvoide a user_id"],
+    required: [true, "please provide a user_id"],
   },
 })
 
