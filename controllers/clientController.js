@@ -33,7 +33,7 @@ async function createClient(req, res) {
     routing_no,
   })
 
-  
+  console.log(client)
 
   if (client) {
     return res.status(201).json({ msg: "client inserted", data: client })

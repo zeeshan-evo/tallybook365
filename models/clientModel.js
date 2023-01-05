@@ -14,7 +14,7 @@ const clientSchema = new mongoose.Schema({
     type: String,
   },
   client_contact_no: {
-    type: Number,
+    type: String,
     required: [true, "client contact no is missing"],
   },
   client_representitive1: {
