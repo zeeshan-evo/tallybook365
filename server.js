@@ -1,6 +1,11 @@
 const express = require('express')
 const app = express()
 require('express-async-errors')
+const morgan = require("morgan")
+const cors = require("cors")
+const helmet = require("helmet")
+const xss = require("xss-clean")
+const mongoSanitize = require("express-mongo-sanitize")
 
 require('dotenv').config()
 
@@ -11,11 +16,7 @@ const invoiceRouter = require("./routes/invoiceRouter")
 const connectDB = require('./utils/db')
 const errorHandler = require('./utils/error-handler')
 const authenticateUser = require('./utils/authorize-authenticate')
-const morgan = require('morgan')
-const cors = require("cors")
-const helmet = require("helmet")
-const xss = require("xss-clean")
-const mongoSanitize = require("express-mongo-sanitize")
+
 
 
 app.use(helmet())
@@ -26,7 +27,7 @@ app.use(morgan('dev'))
 app.use(express.json())
 
 
-app.get('/authtest', authenticateUser, (req, res) => {
+app.get('/showme', authenticateUser, (req, res) => {
   res.json(req.user)
 })
 app.use('/api/v1/auth', authRouter)
