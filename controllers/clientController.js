@@ -69,7 +69,7 @@ async function updateClient(req, res) {
   const client = await Client.findOneAndUpdate({ client_id: id }, req.body, { new: true })
 
   if (client) {
-    return res.status(200).json({ mas: "client successfully updated", data: client })
+    return res.status(200).json({ msg: "client successfully updated", data: client })
   }
   throw new BadRequestError("couldn't update client, sorry :(")
 }
