@@ -22,6 +22,7 @@ const quoteSchema = new mongoose.Schema({
   },
   job_no: {
     type: Number,
+    unique: true,
     required: [true, "job_no is missing"],
   },
   date: {
