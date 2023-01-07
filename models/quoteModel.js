@@ -3,31 +3,31 @@ const mongoose = require("mongoose")
 const quoteSchema = new mongoose.Schema({
   user_id: {
     type: String,
-    required: [true, "user id is missing"],
+    required: [true, "user id is missing."],
   },
   client_id: {
     type: String,
-    required: [true, "client id is missing"],
+    required: [true, "client id is missing."],
   },
   client_name: {
     type: String,
-    required: [true, "client name is missing"],
+    required: [true, "client name is missing."],
   },
   client_address: {
     type: String,
   },
   title: {
     type: String,
-    required: [true, "quote title is missing"],
+    required: [true, "quote title is missing."],
   },
   job_no: {
     type: Number,
     unique: true,
-    required: [true, "job_no is missing"],
+    required: [true, "job_no is missing."],
   },
   date: {
     type: Date,
-    required: [true, "date is missing"],
+    required: [true, "date is missing."],
     default: Date.now(),
   },
   items: {
