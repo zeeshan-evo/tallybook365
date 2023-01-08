@@ -23,6 +23,7 @@ async function createQuote(req, res) {
   })
 
   if (quote) {
+    console.log(quote)
     return res.status(201).json({ msg: "quote inserted", data: quote })
   } else {
     throw new BadRequestError("failed to create new quote, try again")
