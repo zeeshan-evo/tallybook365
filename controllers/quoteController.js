@@ -4,7 +4,23 @@ const Quote = require("../models/quoteModel")
 
 async function createQuote(req, res) {
   
-  const { user_id, client_id, client_name, client_address, title, job_no, date, items, t_and_c, bank_account, bank_name_address, swift, routing_no } = req.body
+  const {
+    user_id,
+    client_id,
+    client_name,
+    client_address,
+    title,
+    job_no,
+    date,
+    items,
+    t_and_c,
+    bank_account,
+    bank_name_address,
+    swift,
+    routing_no,
+    brand,
+    job_type
+  } = req.body
 
   const quote = await Quote.create({
     user_id,
@@ -20,6 +36,8 @@ async function createQuote(req, res) {
     bank_name_address,
     swift,
     routing_no,
+    brand,
+    job_type
   })
 
   if (quote) {

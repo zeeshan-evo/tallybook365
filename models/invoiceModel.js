@@ -16,9 +16,11 @@ const invoiceSchema = new mongoose.Schema({
   client_address: {
     type: String,
   },
-  title: {
+  brand: {
     type: String,
-    required: [true, "quote title is missing"],
+  },
+  job_type: {
+    type: String,
   },
   job_no: {
     type: Number,
