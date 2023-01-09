@@ -41,7 +41,7 @@ const clientSchema = new mongoose.Schema({
     type: String,
   },
   routing_no: {
-    String,
+    type: String,
   },
 })
 
