@@ -16,6 +16,10 @@ const invoiceSchema = new mongoose.Schema({
   client_address: {
     type: String,
   },
+  title: {
+    type: String,
+    required: [true, "invoice title is missing"],
+  },
   brand: {
     type: String,
   },
@@ -50,7 +54,7 @@ const invoiceSchema = new mongoose.Schema({
   },
   routing_no: {
     type: String,
-  }
+  },
 })
 
 module.exports = mongoose.model("Invoice", invoiceSchema)
