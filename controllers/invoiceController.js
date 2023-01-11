@@ -3,7 +3,7 @@ const NotFoundError = require("../errors/not-found")
 const Invoice = require("../models/invoiceModel")
 
 async function createInvoice(req, res) {
-  const { user_id, client_id, client_name, client_address, title, job_no, date, items, advance, due, t_and_c, bank_account, bank_name_address, swift, routing_no, brand, job_type } =
+  const { user_id, client_id, client_name, client_address, title, job_no, date, items, advance, due, grand_total, t_and_c, bank_account, bank_name_address, swift, routing_no, brand, job_type } =
     req.body
 
   const invoice = await Invoice.create({
@@ -17,6 +17,7 @@ async function createInvoice(req, res) {
     items,
     advance,
     due,
+    grand_total,
     t_and_c,
     bank_account,
     bank_name_address,

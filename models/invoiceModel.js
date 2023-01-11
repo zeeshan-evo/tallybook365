@@ -48,6 +48,10 @@ const invoiceSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
+  grand_total: {
+    type: Number,
+    required: [true, "grand total value is missing"]
+  },
   t_and_c: {
     type: String,
   },
