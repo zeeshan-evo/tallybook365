@@ -40,6 +40,14 @@ const invoiceSchema = new mongoose.Schema({
     type: Array,
     default: [],
   },
+  due: {
+    type: Number,
+    default: 0,
+  },
+  advance: {
+    type: Number,
+    default: 0,
+  },
   t_and_c: {
     type: String,
   },
