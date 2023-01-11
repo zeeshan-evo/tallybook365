@@ -34,7 +34,7 @@ const quoteSchema = new mongoose.Schema({
   date: {
     type: Date,
     required: [true, "date is missing."],
-    default: Date.now(),
+    default: Date,
   },
   items: {
     type: Array,
@@ -54,6 +54,10 @@ const quoteSchema = new mongoose.Schema({
   },
   routing_no: {
     type: String,
+  },
+  grand_total: {
+    type: Number,
+    required: [true, "grand total value is missing"]
   }
 })
 

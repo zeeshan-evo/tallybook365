@@ -19,7 +19,8 @@ async function createQuote(req, res) {
     swift,
     routing_no,
     brand,
-    job_type
+    job_type,
+    grand_total
   } = req.body
 
   const quote = await Quote.create({
@@ -37,7 +38,8 @@ async function createQuote(req, res) {
     swift,
     routing_no,
     brand,
-    job_type
+    job_type,
+    grand_total
   })
 
   if (quote) {

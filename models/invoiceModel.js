@@ -34,7 +34,7 @@ const invoiceSchema = new mongoose.Schema({
   date: {
     type: Date,
     required: [true, "date is missing"],
-    default: Date.now(),
+    default: Date,
   },
   items: {
     type: Array,
