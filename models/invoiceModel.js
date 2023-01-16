@@ -44,6 +44,9 @@ const invoiceSchema = new mongoose.Schema({
     type: Number,
     required: [true, "vat is missing."],
   },
+  asf: {
+    type: Number,
+  },
   due: {
     type: Number,
     default: 0,
