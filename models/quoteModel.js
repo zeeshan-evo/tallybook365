@@ -44,6 +44,9 @@ const quoteSchema = new mongoose.Schema({
     type: Number,
     required: [true, "vat is missing."],
   },
+  asf: {
+    type: Number,
+  },
   t_and_c: {
     type: String,
   },
