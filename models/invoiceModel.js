@@ -40,6 +40,10 @@ const invoiceSchema = new mongoose.Schema({
     type: Array,
     default: [],
   },
+  vat: {
+    type: Number,
+    required: [true, "vat is missing."],
+  },
   due: {
     type: Number,
     default: 0,
@@ -50,7 +54,7 @@ const invoiceSchema = new mongoose.Schema({
   },
   grand_total: {
     type: Number,
-    required: [true, "grand total value is missing"]
+    required: [true, "grand total value is missing"],
   },
   t_and_c: {
     type: String,

@@ -40,6 +40,10 @@ const quoteSchema = new mongoose.Schema({
     type: Array,
     default: [],
   },
+  vat: {
+    type: Number,
+    required: [true, "vat is missing."],
+  },
   t_and_c: {
     type: String,
   },
@@ -57,8 +61,8 @@ const quoteSchema = new mongoose.Schema({
   },
   grand_total: {
     type: Number,
-    required: [true, "grand total value is missing"]
-  }
+    required: [true, "grand total value is missing"],
+  },
 })
 
 module.exports = mongoose.model("Quote", quoteSchema)
