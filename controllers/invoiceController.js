@@ -39,8 +39,12 @@ async function createInvoice(req, res) {
 async function getAllInvoices(req, res) {
   const { user_id, role } = req.user
 
+  const page = Number(req.query.page) || 1
+  const limit = Number(req.query.limit) || 30
+  const skip = (page - 1) * limit
+
   if (role === "admin") {
-    const invoices = await Invoice.find({})
+    const invoices = await Invoice.find({}).sort("-date").skip(skip).limit(limit)
     console.log(invoices, role)
     if (invoices.length > 0) {
       return res.status(200).json(invoices)
@@ -49,7 +53,7 @@ async function getAllInvoices(req, res) {
   }
 
   if (role === "user") {
-    const invoices = await Invoice.find({ user_id: user_id })
+    const invoices = await Invoice.find({ user_id: user_id }).sort('-date').skip(skip).limit(limit)
     console.log(invoices, role)
     if (invoices.length > 0) {
       return res.status(200).json(invoices)

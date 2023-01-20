@@ -56,9 +56,13 @@ async function createQuote(req, res) {
 
 async function getAllQuotes(req, res) {
   const { user_id, role } = req.user
+
+  const page = Number(req.query.page) || 1
+  const limit = Number(req.query.limit) || 30
+  const skip = (page - 1) * limit
   
   if (role === "admin") {
-    const quotes = await Quote.find({})
+    const quotes = await Quote.find({}).sort('-date').skip(skip).limit(limit)
     if (quotes) {
       return res.status(200).json(quotes)
     }
@@ -66,7 +70,7 @@ async function getAllQuotes(req, res) {
   }
 
   if (role === "user") {
-    const quotes = await Quote.find({ user_id: user_id })
+    const quotes = await Quote.find({ user_id: user_id }).sort('-date').skip(skip).limit(limit)
     if (quotes) {
       return res.status(200).json(quotes)
     }
