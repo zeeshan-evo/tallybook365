@@ -16,6 +16,7 @@ const invoiceRouter = require("./routes/invoiceRouter")
 const connectDB = require('./utils/db')
 const errorHandler = require('./utils/error-handler')
 const authenticateUser = require('./utils/authorize-authenticate')
+const notFoundError = require('./utils/not-found-404')
 
 
 
@@ -35,6 +36,7 @@ app.use("/api/v1", clientRouter)
 app.use("/api/v1", quoteRouter)
 app.use("/api/v1", invoiceRouter)
 
+app.use(notFoundError)
 app.use(errorHandler)
 
 const startServer = () => {
