@@ -18,6 +18,7 @@ const errorHandler = require('./utils/error-handler')
 const authenticateUser = require('./utils/authorize-authenticate')
 const notFoundError = require('./utils/not-found-404')
 const challanRouter = require('./routes/challanRouter')
+const workorderRouter = require('./routes/workorderRouter')
 
 
 
@@ -37,6 +38,7 @@ app.use("/api/v1", clientRouter)
 app.use("/api/v1", quoteRouter)
 app.use("/api/v1", invoiceRouter)
 app.use("/api/v1", challanRouter)
+app.use("/api/v1", workorderRouter)
 
 app.use(notFoundError)
 app.use(errorHandler)

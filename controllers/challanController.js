@@ -95,7 +95,7 @@ async function updateChallan(req, res) {
   const challan = await Challan.findOneAndUpdate({ _id: id }, req.body, { new: true })
 
   if (challan) {
-    return res.status(200).json({ msg: "quote successfully updated", data: challan })
+    return res.status(200).json({ msg: "challan successfully updated", data: challan })
   }
   throw new BadRequestError("couldn't update challan, sorry :(")
 }
@@ -106,8 +106,9 @@ async function deleteChallan(req, res) {
   const challan = await Challan.findOneAndDelete({ _id: id })
 
   if (challan) {
-    return res.status(200).json({ msg: "quote deleted", data: challan })
+    return res.status(200).json({ msg: "challan deleted", data: challan })
   }
   throw new NotFoundError("challan with particular id was not found")
 }
+
 module.exports = { createChallan, getAllChallans, getChallan, deleteChallan, updateChallan }
