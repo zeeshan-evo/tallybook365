@@ -1,6 +1,6 @@
 # Invoicing and quotation management solution for digital agencies.
 
-### We use a more advanced version of this api with a lot more functionality, infrastructure and offer it as a SASS product for our clients. we have 150+ agencies currently using our SASS service. If you are a freelancer or a small business owner you can deploy this to your own infrastructure and use this basic version free of charge. 
+### We use a more advanced version of this api with a lot more functionality, infrastructure and offer it as a SASS product for our clients. We used this as a MVP product to test out the market, currently we have 150+ agencies currently using our SASS service. If you are a freelancer or a small business owner you can deploy this to your own infrastructure and use this basic version free of charge if you want. 
 
 ### steps to run the api:
 
